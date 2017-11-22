@@ -16,5 +16,7 @@ export class QuestionnaireComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  submit() {
+    console.log('submit click');
+  }
 }
