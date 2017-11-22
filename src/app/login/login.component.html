@@ -1,0 +1,12 @@
+<div class="login">
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1511372931986&di=14f63d92c8ef4b05cefe0b5a14652aa2&imgtype=0&src=http%3A%2F%2Ff3.v.veimg.cn%2Fcompany_picture%2F000%2F268%2F398%2Flogo%2F14030742152129.jpg" alt="">
+    <div class="form username">
+        <input type="text" [(ngModel)]="tableListParams.Phone" placeholder="请输入手机号" name="" id="">
+        <i *ngIf="tableListParams.Phone" (click)="tableListParams.Phone=''"></i>
+    </div>
+    <div class="form pwd">
+        <input type="password" [(ngModel)]="tableListParams.Pwd" placeholder="请输入操作码" name="" id="">
+        <i *ngIf="tableListParams.Pwd" (click)="tableListParams.Pwd=''"></i>
+    </div>
+    <button (click)="submit()">校验</button>
+</div>

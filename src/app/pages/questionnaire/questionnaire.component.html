@@ -1,0 +1,38 @@
+<!-- [right]="'口味选择'" (rightEvent)="rightClick($event)" -->
+<app-header [title]="'调查问卷'">
+</app-header>
+<div class="order-main">
+  <ul class="order-info">
+    <li>
+      <input class="style" [(ngModel)]="UserOrderingParam.PeoPleNum" type="number" name="" id="" placeholder="用餐人数">
+    </li>
+    <li>
+      <input class="style" [(ngModel)]="UserOrderingParam.Ask" type="text" name="" id="" placeholder="客人类型">
+    </li>
+    <li>
+      <input class="style" [(ngModel)]="UserOrderingParam.PeoPleNum" type="text" name="" id="" placeholder="消费金额">
+    </li>
+    <li>
+      <input class="style" [(ngModel)]="UserOrderingParam.Ask" type="text" name="" id="" placeholder="调查结果">
+    </li>
+    <li>
+      <input class="style" [(ngModel)]="UserOrderingParam.Ask" type="text" name="" id="" placeholder="希望改进">
+    </li>
+    <li>
+      <input class="style" [(ngModel)]="UserOrderingParam.PeoPleNum" type="text" name="" id="" placeholder="客人行业">
+    </li>
+    <li>
+      <input class="style" [(ngModel)]="UserOrderingParam.Ask" type="text" name="" id="" placeholder="特殊要求（选填）">
+    </li>
+    <li>
+      <input class="style" [(ngModel)]="UserOrderingParam.PeoPleNum" type="text" name="" id="" placeholder="备用字段">
+    </li>
+    <li>
+      <input class="style" [(ngModel)]="UserOrderingParam.Ask" type="text" name="" id="" placeholder="备用字段">
+    </li>
+  </ul>
+</div>
+
+<footer>
+  <span class="r" (click)="submit()">提交</span>
+</footer>
