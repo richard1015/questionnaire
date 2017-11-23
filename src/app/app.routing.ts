@@ -5,7 +5,7 @@ const routes: Routes = [
     // { path: 'login', component: LoginComponent },
     // --------------顾客-------------------- //
     { path: 'questionnaire', loadChildren: "app/pages/questionnaire/questionnaire.module#QuestionnaireModule" },
-    { path: '**', component: LoginComponent }
+    { path: '**', redirectTo: "questionnaire", pathMatch: 'full'}
 ];
 
 export const AppRoutes = routes;
