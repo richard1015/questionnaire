@@ -4,35 +4,58 @@
 <div class="order-main">
   <ul class="order-info">
     <li>
-      <input class="style" [(ngModel)]="UserOrderingParam.PeoPleNum" type="number" name="" id="" placeholder="用餐人数">
+      <span>请输入操作码：</span>
+      <div class="style">
+        <input class="style" [(ngModel)]="Guid" maxlength="6" type="text" name="" id="" placeholder="6操作码">
+        <button class="checkBtn" (click)="checkGuid()">校验</button>
+      </div>
     </li>
-    <li>
-      <input class="style" [(ngModel)]="UserOrderingParam.Ask" type="text" name="" id="" placeholder="客人类型">
+    <li *ngIf="UlState">
+      <span>是否为Vip：</span>
+      <div class="style">
+        <button class="lable" (click)="params.isVip=true" [ngClass]="{'active': params.isVip}">是</button>
+        <button class="lable" (click)="params.isVip=false" [ngClass]="{'active': !params.isVip}">否</button>
+      </div>
     </li>
-    <li>
-      <input class="style" [(ngModel)]="UserOrderingParam.PeoPleNum" type="text" name="" id="" placeholder="消费金额">
+    <li *ngIf="params.isVip&&UlState">
+      <span>Vip号码：</span>
+      <input class="style" [(ngModel)]="params.vipCard" type="text" name="" id="" placeholder="Vip号码">
     </li>
-    <li>
-      <input class="style" [(ngModel)]="UserOrderingParam.Ask" type="text" name="" id="" placeholder="调查结果">
+    <li *ngIf="UlState&&GuidState==500">
+      <span>喜欢酒水/食品：</span>
+      <input class="style" [(ngModel)]="params.favFoodAndDrink" type="text" name="" id="" placeholder="喜欢酒水/食品">
     </li>
-    <li>
-      <input class="style" [(ngModel)]="UserOrderingParam.Ask" type="text" name="" id="" placeholder="希望改进">
+    <li *ngIf="UlState">
+      <span>客人建议：</span>
+      <input class="style" [(ngModel)]="params.feedback" type="text" name="" id="" placeholder="客人建议">
     </li>
-    <li>
-      <input class="style" [(ngModel)]="UserOrderingParam.PeoPleNum" type="text" name="" id="" placeholder="客人行业">
+    <li *ngIf="UlState">
+      <span>客人姓名：</span>
+      <input class="style" [(ngModel)]="params.userName" type="text" name="" id="" placeholder="客人姓名">
     </li>
-    <li>
-      <input class="style" [(ngModel)]="UserOrderingParam.Ask" type="text" name="" id="" placeholder="特殊要求（选填）">
+    <li *ngIf="UlState">
+      <span>客人手机号：</span>
+      <input class="style" [(ngModel)]="params.userPhone" type="text" name="" id="" placeholder="客人手机号">
     </li>
-    <li>
-      <input class="style" [(ngModel)]="UserOrderingParam.PeoPleNum" type="text" name="" id="" placeholder="备用字段">
+    <li *ngIf="UlState">
+      <span>客人生日：</span>
+      <input class="style date" [(ngModel)]="params.userBirthday" type="date" name="" id="" placeholder="客人生日">
     </li>
-    <li>
-      <input class="style" [(ngModel)]="UserOrderingParam.Ask" type="text" name="" id="" placeholder="备用字段">
+    <!-- 500 下表单 -->
+    <li *ngIf="UlState&&GuidState==500">
+      <span>是否已加入Vip：</span>
+      <div class="style">
+        <button class="lable" (click)="params.isJoinUsVip=true" [ngClass]="{'active': params.isJoinUsVip}">是</button>
+        <button class="lable" (click)="params.isJoinUsVip=false" [ngClass]="{'active': !params.isJoinUsVip}">否</button>
+      </div>
+    </li>
+    <li *ngIf="UlState&&params.isJoinUsVip">
+      <span>Vip号码：</span>
+      <input class="style" [(ngModel)]="params.UsVipNumber" type="text" name="" id="" placeholder="">
     </li>
   </ul>
 </div>
 
 <footer>
-  <span class="r" (click)="submit()">提交</span>
+  <span *ngIf="UlState" class="r" (click)="submit()">提交</span>
 </footer>

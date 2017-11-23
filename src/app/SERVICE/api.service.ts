@@ -12,7 +12,8 @@ export class ApiService {
     constructor(private http: Http, private upload: UploadService, private ls: LocalStorage) { }
 
     private post(data: ParamData): Observable<ResponseInfo> {
-        let host = "/serverDianDian";
+        
+        let host = "http://192.168.0.33:8090/questionnaire/script/index.php";
         let bodyObj = {
             cmd: data.cmd,
             param: JSON.stringify(data.param)
@@ -50,7 +51,7 @@ export class ApiService {
         } else {
             let myHeaders = new Headers();
             myHeaders.append('Content-Type', 'application/x-www-form-urlencoded');
-            myHeaders.append('guid', this.ls.getObject("USERINFO").Guid);
+            // myHeaders.append('guid', this.ls.getObject("USERINFO").Guid);
             return this.http.post(
                 host,
                 body,
