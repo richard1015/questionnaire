@@ -39,7 +39,7 @@ export class QuestionnaireComponent implements OnInit {
         let data = res.Value;
         this.UlState = true;
         this.GuidState = data.OrderState;
-        this.params.optCode=data.OptCode;
+        this.params.optCode = data.OptCode;
       } else {
         this.UlState = false;
         layer.msg("未找到该操作码，请重新输入！");
@@ -50,10 +50,14 @@ export class QuestionnaireComponent implements OnInit {
   }
   submit() {
     this.params.optCode = this.Guid;
-    console.log(this.params);
-    layer.msg(JSON.stringify(this.params));
     this.api.Post(this.params, "submit").subscribe(res => {
-      console.log(res);
+      if (res.State == 0) {
+        layer.alert(res.Msg, { icon: 1 },function(index){
+          window.location.reload();
+        });
+      } else {
+        layer.msg(res.Msg);
+      }
     });
   }
 }
