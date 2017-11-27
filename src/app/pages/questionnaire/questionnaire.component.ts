@@ -8,6 +8,7 @@ declare var layer: any;
 })
 export class QuestionnaireComponent implements OnInit {
   params: Params = new Params();
+  
   constructor(private api: ApiService) {
 
   }
@@ -24,14 +25,15 @@ export class QuestionnaireComponent implements OnInit {
       layer.msg("请输入6位操作码！");
       return;
     }
-
+    this.params.optCode=this.Guid;
     this.api.Post({ optCode: this.Guid }, "getCodeState").subscribe(res => {
       // let resDate = {
       //   State: 0,
       //   Msg: "",
       //   Value: {
       //     optCode: "d713hj",
-      //     orderState: 500
+      //     orderState: 500,
+      //       info:null
       //   }
       // }
 
@@ -40,6 +42,11 @@ export class QuestionnaireComponent implements OnInit {
         this.UlState = true;
         this.GuidState = data.OrderState;
         this.params.optCode=data.OptCode;
+        if(data.InfoObj){
+          this.params=data.InfoObj;
+        }else{
+          this.params=new Params();
+        }
       } else {
         this.UlState = false;
         layer.msg("未找到该操作码，请重新输入！");
@@ -50,10 +57,14 @@ export class QuestionnaireComponent implements OnInit {
   }
   submit() {
     this.params.optCode = this.Guid;
-    console.log(this.params);
-    layer.msg(JSON.stringify(this.params));
     this.api.Post(this.params, "submit").subscribe(res => {
-      console.log(res);
+      if (res.State == 0) {
+        layer.alert(res.Msg, { icon: 1 },function(index){
+          window.location.reload();
+        });
+      } else {
+        layer.msg(res.Msg);
+      }
     });
   }
 }

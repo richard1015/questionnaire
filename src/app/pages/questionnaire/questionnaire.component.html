@@ -21,7 +21,7 @@
       <span>Vip号码：</span>
       <input class="style" [(ngModel)]="params.vipCard" type="text" name="" id="" placeholder="Vip号码">
     </li>
-    <li *ngIf="UlState&&GuidState==500">
+    <li *ngIf="UlState">
       <span>喜欢酒水/食品：</span>
       <input class="style" [(ngModel)]="params.favFoodAndDrink" type="text" name="" id="" placeholder="喜欢酒水/食品">
     </li>
@@ -42,7 +42,7 @@
       <input class="style date" [(ngModel)]="params.userBirthday" type="date" name="" id="" placeholder="客人生日">
     </li>
     <!-- 500 下表单 -->
-    <li *ngIf="UlState&&GuidState==500">
+    <li *ngIf="UlState">
       <span>是否已加入Vip：</span>
       <div class="style">
         <button class="lable" (click)="params.isJoinUsVip=true" [ngClass]="{'active': params.isJoinUsVip}">是</button>
