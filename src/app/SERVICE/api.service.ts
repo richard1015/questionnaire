@@ -13,7 +13,7 @@ export class ApiService {
 
     private post(data: ParamData): Observable<ResponseInfo> {
         
-        let host = "http://192.168.0.33:8090/questionnaire/script/index.php";
+        let host = "/script/index.php";
         let bodyObj = {
             cmd: data.cmd,
             param: JSON.stringify(data.param)
