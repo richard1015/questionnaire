@@ -11,6 +11,9 @@ ul {
     box-sizing: border-box;
     padding: 0 .333333rem;
 }
+textarea{
+    resize:none;
+}
 li{
     display: flex;
     border-bottom: 1px solid #999999;
