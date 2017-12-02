@@ -11,9 +11,7 @@ import { LoginComponent } from './login/login.component';
 
 import { AppRoutes } from './app.routing';
 import { ApiService } from './SERVICE/api.service';
-import { LocalStorage } from './SERVICE/local.storage';
 import { UploadService } from './SERVICE/upload.service';
-import { WebSocketService } from './SERVICE/webSocket.service';
 
 
 @NgModule({
@@ -29,8 +27,6 @@ import { WebSocketService } from './SERVICE/webSocket.service';
   ],
   providers: [UploadService,
     ApiService,
-    WebSocketService,
-    LocalStorage,
     {
       provide: LocationStrategy,
       useClass: HashLocationStrategy
