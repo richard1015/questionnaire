@@ -28,7 +28,8 @@
     </li>
     <li *ngIf="UlState">
       <span>客人建议：</span>
-      <input class="style" [(ngModel)]="params.feedback" type="text" name="" id="" placeholder="客人建议">
+      <!-- <input class="style" [(ngModel)]="params.feedback" type="text" name="" id="" placeholder="客人建议"> -->
+      <textarea name="" id="" class="style" placeholder="客人建议" [(ngModel)]="params.feedback" cols="30" rows="10"></textarea>
     </li>
     <li *ngIf="UlState">
       <span>客人姓名：</span>
