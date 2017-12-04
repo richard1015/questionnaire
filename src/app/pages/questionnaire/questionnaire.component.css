@@ -7,9 +7,9 @@ ul {
     color: #ffffff;
     border-radius: .2rem;
     border: 0;
-    margin: .266667rem;
     box-sizing: border-box;
     padding: 0 .333333rem;
+    height: .8rem;
 }
 textarea{
     resize:none;
