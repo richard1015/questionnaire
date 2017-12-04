@@ -1,6 +1,6 @@
 ul {
     text-align: center;
-    /* background: rgb(246, 246, 246); */
+    /* background: rgb(246, 246, 246);   */
 }
 .checkBtn{
     background: #FF7979;
@@ -10,6 +10,7 @@ ul {
     box-sizing: border-box;
     padding: 0 .333333rem;
     height: .8rem;
+    font-size: .4rem;
 }
 textarea{
     resize:none;
@@ -75,6 +76,7 @@ li .style.date{
     background-color: #ffffff;
     overflow: hidden;
     box-sizing: border-box;
+    font-size: .4rem;
 }
 
 .order-info{
